@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        #student-info {
+            border: 1px solid #cccccc;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="student-info"></div>
+
+    <script src="app.js">
+        class Person {
+            #name;
+            #age;
+            #occupation;
+
+            constructor(name, age, occupation) {
+                this.#name = name;
+                this.#age = age;
+                this.#occupation = occupation;
+            }
+
+            getName() {
+                return this.#name;
+            }
+
+            getAge() {
+                return this.#age;
+            }
+
+            getOccupation() {
+                return this.#occupation;
+            }
+        }
+
+        class Student extends Person {
+            #major;
+
+            constructor(name, age, occupation, major) {
+                super(name, age, occupation);
+                this.#major = major;
+            }
+
+            getMajor() {
+                return this.#major;
+            }
+        }
+
+        const student = new Student('march', 24, 'instructor', 'Object Oriented Programming');
+
+        const studentInfoDiv = document.getElementById('student-info');
+        studentInfoDiv.innerHTML = `
+            <h2>Student Information</h2>
+            <p><strong>Name:</strong> ${student.getName()}</p>
+            <p><strong>Age:</strong> ${student.getAge()}</p>
+            <p><strong>Occupation:</strong> ${student.getOccupation()}</p>
+            <p><strong>Major:</strong> ${student.getMajor()}</p>
+        `;
+    </script>
+</body>
+<script src="script.js"></script>
+</html>
